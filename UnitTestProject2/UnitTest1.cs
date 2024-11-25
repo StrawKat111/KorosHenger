@@ -13,8 +13,11 @@ namespace KorHengerTeszt
         {
             double sugar = 5;
             Kor kor = new Kor(sugar);
+            double vártEredm = 31.42;
             kor.SetKerület();
-            double vártEredm = 31.4;
+            double kapottEredm = kor.GetKerület();
+
+            Assert.AreEqual(vártEredm, kapottEredm);
         }
 
         [TestMethod]
