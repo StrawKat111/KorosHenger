@@ -16,12 +16,22 @@ namespace KörHenger
 
         public Kor(double r)
         {
-            this.sugar = r;
+            if (r <= 0)
+            {
+                throw new ArgumentException("A kör sugarának nagyobbnak kell lennie mint 0.");
+            }
+            else
+                this.sugar = r;
         }
 
         public void SetSugar(double r)
         {
-            this.sugar = r;
+            if (r <= 0)
+            {
+                throw new ArgumentException("A kör sugarának nagyobbnak kell lennie mint 0.");
+            }
+            else
+                this.sugar = r;
         }
 
         public void SetTerület()
@@ -57,12 +67,18 @@ namespace KörHenger
 
         public Hengertok(double s, double m)
         {
-            this.sugar = s;
-            this.magasság = m;
-
-            SetKerület();
-            SetTerület();
-            this.térfogat = this.terület * this.magasság;
+            if (s <= 0 || m <= 0)
+            {
+                throw new ArgumentException("A henger sugarának és magasságának nagyobbnak kell lennie mint 0.");
+            }
+            else
+            {
+                this.sugar = s;
+                this.magasság = m;
+                SetKerület();
+                SetTerület();
+                this.térfogat = this.terület * this.magasság;
+            }
         }
 
         public double GetTérfogat()

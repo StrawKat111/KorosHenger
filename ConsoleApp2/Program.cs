@@ -20,7 +20,7 @@ namespace ConsoleApp2
 
             k1.SetTerület();
 
-            kiír(k1);
+            //kiír(k1);
 
 
             Kor k2 = new Kor(58);
@@ -29,7 +29,31 @@ namespace ConsoleApp2
 
             k2.SetTerület();
 
-            kiír(k2);
+            //kiír(k2);
+            try
+            {
+                Hengertok h1 = new Hengertok(15, 34);
+                kiírHenger(h1);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            catch (ArithmeticException e)
+            {
+                Console.WriteLine($"Arithmetikai hiba {e.Message}");
+
+            }
+            try
+            {
+                Hengertok h2 = new Hengertok(0, 30);
+                kiírHenger(h2);
+            }
+            catch (ArgumentException e)
+            {
+                Console.WriteLine(e);
+            }
+
 
             Console.ReadKey();
 
@@ -41,6 +65,10 @@ namespace ConsoleApp2
 
             Console.WriteLine($"A {k.GetSugár()} sugarú kör kerülete: {k.GetKerület()}, területe: {k.GetTerület()}.");
 
+        }
+        private static void kiírHenger(Hengertok k)
+        {
+            Console.WriteLine($"A {k.GetSugár()} sugarú henger térfogata: {k.GetTérfogat()}.");
         }
 
 
